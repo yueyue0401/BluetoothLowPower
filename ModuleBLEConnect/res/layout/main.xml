@@ -1,0 +1,207 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.bleconnect.Main" >
+
+    <EditText
+        android:id="@+id/EditTextTime"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/buttonScan"
+        android:layout_toLeftOf="@+id/buttonScan"
+        android:ems="10"
+        android:text="3000" />
+
+    <Button
+        android:id="@+id/buttonScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/buttonScanWithFilter"
+        android:onClick="onClickScan"
+        android:text="Scan" />
+
+    <Button
+        android:id="@+id/buttonScanWithFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/listViewBLE"
+        android:onClick="onClickScanWithFilter"
+        android:text="Filter" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/buttonScan"
+        android:layout_marginTop="5dp"
+        android:background="#3c3c3c" />
+
+    <ListView
+        android:id="@+id/listViewBLE"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_below="@+id/buttonScan"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" >
+    </ListView>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/listViewBLE"
+        android:layout_marginBottom="10dp"
+        android:background="#3c3c3c" />
+
+    <Button
+        android:id="@+id/buttonDisconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/listViewBLE"
+        android:onClick="onClickDisconnect"
+        android:text="Disc" />
+
+    <Button
+        android:id="@+id/buttonDisconnectAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listViewBLE"
+        android:layout_toRightOf="@+id/buttonDisconnect"
+        android:onClick="onClickDisconnectAll"
+        android:text="DiscAll" />
+
+    <Button
+        android:id="@+id/buttonConnectMaxRSSI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/listViewBLE"
+        android:onClick="onClickConnectMaxRSSI"
+        android:text="ConnMax" />
+
+    <Button
+        android:id="@+id/buttonConnectAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listViewBLE"
+        android:layout_toLeftOf="@+id/buttonConnectMaxRSSI"
+        android:onClick="onClickConnectAll"
+        android:text="ConnAll" />
+
+    <EditText
+        android:id="@+id/EditTextCommand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/buttonSend"
+        android:layout_toLeftOf="@+id/buttonSendAll"
+        android:hint="Command" >
+    </EditText>
+
+    <Button
+        android:id="@+id/buttonSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/buttonConnectAll"
+        android:onClick="onClickSend"
+        android:text="Send" />
+
+    <Button
+        android:id="@+id/buttonSendAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonConnectAll"
+        android:layout_toLeftOf="@+id/buttonSend"
+        android:onClick="onClickSendAll"
+        android:text="SendAll" />
+
+    <Button
+        android:id="@+id/buttonCommand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonSendAll"
+        android:onClick="onClickCommand"
+        android:text="Command" />
+
+    <Button
+        android:id="@+id/buttonErrClr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonSendAll"
+        android:layout_toRightOf="@+id/buttonCommand"
+        android:onClick="onClickErrClr"
+        android:text="ErrClr" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_below="@+id/buttonCommand"
+        android:layout_marginTop="5dp"
+        android:background="#3c3c3c" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignLeft="@+id/buttonDisconnect"
+        android:layout_below="@+id/buttonCommand"
+        android:layout_above="@+id/view3" >
+
+        <TextView
+            android:id="@+id/textViewState"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="state"
+            android:textSize="20sp" />
+    </ScrollView>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_above="@+id/progressBar1"
+        android:layout_marginTop="5dp"
+        android:background="#3c3c3c" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:id="@+id/buttonUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view2"
+        android:layout_alignRight="@+id/buttonSend"
+        android:onClick="onUploadClick"
+        android:text="Upload" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view2"
+        android:layout_toLeftOf="@+id/buttonUpload"
+        android:onClick="onSelcetDFUClick"
+        android:text="DFU" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="onInitClick"
+        android:text="init BLE" />
+
+</RelativeLayout>
